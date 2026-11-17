@@ -1,0 +1,13 @@
+[Unit]
+Description=TuxBar Pro — Dynamic Apple Touch Bar Suite for Linux T2
+After=graphical.target pipewire.service
+
+[Service]
+Type=simple
+Environment=PYTHONPATH=/opt/tuxbar-pro
+ExecStart=/usr/local/bin/tuxbar-pro
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=graphical.target
