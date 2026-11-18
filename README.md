@@ -4,59 +4,69 @@
 **Web del proyecto:** https://mylnzon58.github.io/tuxbar-pro/  
 **Licencia:** MIT  
 
-**TuxBar Pro** lleva al Touch Bar OLED (`2170 × 60`) de la **MacBook Pro 16" 2019 (A2141)** y otros Mac con chip Apple T2 en **Linux (Ubuntu 24.04 LTS / kernel `linux-t2`)** todas las funcionalidades prácticas del Touch Bar de macOS junto con telemetría de audio en decibeles (`dBFS`) y sensores térmicos en tiempo real.
+**TuxBar Pro** abstrae y replica en Linux (`Ubuntu 24.04 LTS` + kernel `linux-t2`) la experiencia visual y funcional completa del Touch Bar OLED (`2170 × 60`) de macOS con íconos vectoriales de alta nitidez (renderizado *supersampled 2x*), sumando además **telemetría de audio en decibeles (`dBFS`) por PipeWire** y **sensores térmicos A2141 en vivo**.
 
 ---
 
-## Todas las vistas y funciones incluidas (Imágenes reales del renderizador)
+## Todas las funcionalidades e imágenes reales del renderizador (`2170 × 60`)
 
-### 1. Reproductor Multimedia (MPRIS2) + Vúmetro de Decibeles (`dBFS`) en vivo por PipeWire
-Controla Spotify, Chrome, YouTube Music, Firefox o VLC con carátula/título, Play/Pausa, barra de progreso táctil y **medidor en tiempo real de `dBFS` RMS y Pico (`-60 dB` a `0 dB`)** directo desde la salida de PipeWire / PulseAudio.
+### 1. Control Strip Expandido estilo macOS (con íconos vectoriales)
+Brillo de pantalla (`- / +`), Mission Control, Launchpad, retroiluminación de teclado (`- / +`), controles multimedia (`|<<`, Play, `>>|`), silencio, volumen (`- / +`), lupa Spotlight, acceso rápido `dB` y bloqueo de pantalla.
 
-![TuxBar Pro Media y Decibeles PipeWire](assets/strips/strip-media-decibels.png)
+![TuxBar Pro Control Strip Expandido](assets/strips/strip-01-expanded-control.png)
 
-### 2. Perfiles Dinámicos por Aplicación Activa (IDE / Terminal y Navegador)
-Detecta automáticamente la ventana enfocada y adapta los botones del Touch Bar igual que en macOS:
+### 2. Deslizadores Táctiles de Brillo y Volumen (`Slider Popover`)
+Barras deslizantes interactivas idénticas a macOS para ajustar brillo y volumen arrastrando el dedo.
 
-![TuxBar Pro Modo IDE y Terminal](assets/strips/strip-app-ide.png)
+![TuxBar Pro Deslizadores Brillo y Volumen](assets/strips/strip-02-slider-overlay.png)
 
-![TuxBar Pro Modo Navegador](assets/strips/strip-app-browser.png)
+### 3. Barra de Escritura (`Typing Bar`): Formato, Texto Predictivo e Íconos Emoji
+Al escribir en editores o chats: botones de formato (`B`, `I`, `U`, color `A`), sugerencias predictivas de palabras y selector rápido de emojis junto al Control Strip derecho.
 
-### 3. Telemetría Térmica y de Ventiladores A2141 en el Touch Bar
-Muestra en tiempo real temperatura de CPU (`coretemp`), consumo (`RAPL`), RPM de ambas turbinas (`applesmc`) y uso de RAM/ZSWAP sin abrir ventanas en pantalla.
+![TuxBar Pro Escritura Predictivo y Emojis](assets/strips/strip-03-typing-emoji.png)
 
-![TuxBar Pro Telemetría Térmica A2141](assets/strips/strip-thermal-a2141.png)
+### 4. Barra de Navegador Web con Miniaturas de Pestañas
+Botones Atrás/Adelante, barra de búsqueda/URL, selector visual de pestañas abiertas, `+` nueva pestaña y Control Strip derecho.
 
-### 4. Modo Teclas de Función clásicas (`Fn` → `F1–F12`)
-Acceso rápido a `Esc` y `F1–F12` manteniendo siempre la franja de control derecha.
+![TuxBar Pro Navegador y Pestañas](assets/strips/strip-04-browser-tabs.png)
 
-![TuxBar Pro Teclas Fn F1-F12](assets/strips/strip-fn-keys.png)
+### 5. Barra de Captura y Grabación de Pantalla
+Captura de pantalla completa, ventana, selección, grabación de video y carpeta de destino.
 
-### 5. Control Strip Expandido estilo macOS
-Brillo de pantalla, brillo de teclado, vista de ventanas, lanzador de apps, multimedia, volumen, acceso directo a `dB Live`, No Molestar y bloqueo de pantalla.
+![TuxBar Pro Captura de Pantalla](assets/strips/strip-05-screenshot-bar.png)
 
-![TuxBar Pro Control Strip Expandido](assets/strips/strip-expanded-control.png)
+### 6. Reproductor MPRIS2 + Vúmetro de Decibeles (`dBFS`) en vivo por PipeWire
+Controla Spotify, Chrome, YouTube Music, Firefox o VLC con barra de progreso táctil y **medidor de decibeles `RMS` y `Pico` (`-60 dB` a `0 dB`)** con 16 bandas en tiempo real directo desde PipeWire.
+
+![TuxBar Pro Media y Decibeles PipeWire](assets/strips/strip-06-media-decibels.png)
+
+### 7. Telemetría Térmica y Ventiladores A2141 en el OLED
+Temperatura de CPU (`coretemp`), consumo (`RAPL`), RPM de ambas turbinas (`applesmc`), RAM/ZSWAP y acceso al modo audio `dB`.
+
+![TuxBar Pro Telemetría Térmica A2141](assets/strips/strip-07-thermal-a2141.png)
+
+### 8. Teclas de Función Clásicas (`Esc` + `F1–F12` + Control Strip)
+Fila completa `F1` a `F12` con íconos vectoriales de brillo, volumen, silencio y `dB` a la derecha.
+
+![TuxBar Pro Teclas Fn F1-F12](assets/strips/strip-08-fn-keys.png)
 
 ---
 
 ## Transparencia total: Qué funciona en Linux y qué NO se puede extraer de macOS
 
-Para ser 100 % honesto con quienes prueben este proyecto:
-
 | Funcionalidad | Estado en Linux (`TuxBar Pro`) | Explicación técnica |
 | :--- | :--- | :--- |
-| **Control Strip (Brillo, Vol, Teclado, Lock)** | **Funciona 100 %** | Dibujado por DRM/KMS (`2170 × 60`) + eventos `uinput`/`evdev`. |
+| **Control Strip + Íconos Vectoriales + Sliders** | **Funciona 100 %** | Renderizado *2x supersampled* por DRM/KMS (`2170 × 60`) + `evdev`/`uinput`. |
 | **Reproductores de música + barra táctil** | **Funciona 100 %** | Vía estándar **MPRIS2 D-Bus** (`playerctl`: Spotify, Chrome, VLC, Firefox). |
 | **Telemetría de audio en decibeles (`dBFS`)** | **Funciona 100 %** | Lectura PCM 48 kHz desde `@DEFAULT_MONITOR@` en **PipeWire / PulseAudio**. |
-| **Teclas `Esc` y `F1–F12`** | **Funciona 100 %** | Inyección directa de eventos de teclado mediante `/dev/uinput`. |
-| **Botones dinámicos por aplicación** | **Funciona vía X11 / WM** | Detecta ventana activa por `WM_CLASS` y cambia perfil (no usa APIs privadas de Apple). |
+| **Teclas `Esc`, `F1–F12` y Atajos de App** | **Funciona 100 %** | Inyección directa mediante `/dev/uinput` y detección por `WM_CLASS`. |
 | **Telemetría CPU / RPMs A2141** | **Funciona 100 %** | Lee `/sys/class/hwmon` (`coretemp`) y `/sys/devices/platform/applesmc.*`. |
 | **Touch ID (huella en el botón de encendido)** | **No incluido / Limitado** | En el chip Apple T2 está cifrado dentro del **Secure Enclave** propietario. |
-| **Botones privados `NSTouchBar` de apps de macOS** | **No extraíble** | Protocolo cerrado de Apple para apps exclusivas de macOS; se recrea con perfiles Linux. |
+| **Protocolo privado `NSTouchBar` de Apple** | **No extraíble** | Exclusivo de apps nativas de macOS; se recrea con perfiles de ventana en Linux. |
 
 ---
 
-## Requisitos e instalación en Linux (Ubuntu 24.04 LTS + `linux-t2`)
+## Instalación en Linux (Ubuntu 24.04 LTS + `linux-t2`)
 
 ```bash
 git clone https://github.com/mylnzon58/tuxbar-pro.git
@@ -64,8 +74,6 @@ cd tuxbar-pro
 chmod +x install.sh uninstall.sh
 sudo ./install.sh
 ```
-
-*(Nota de desarrollo: los módulos en Python, el puente C `libdrm` y las tiras visuales `2170 × 60` fueron diseñados y validados sintácticamente antes de publicar; la compilación de `libtuxbar_hw.so` contra `libdrm-dev` y la ejecución sobre `/dev/dri/card*` se realizan directamente en Linux T2 mediante `sudo ./install.sh`).*
 
 ---
 

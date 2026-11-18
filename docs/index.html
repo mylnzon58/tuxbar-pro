@@ -3,75 +3,47 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TuxBar Pro — Touch Bar Completo para Linux T2 (MPRIS2, PipeWire dBFS, Térmica)</title>
-  <meta name="description" content="Suite completa para el Apple Touch Bar en Linux T2 (Ubuntu 24.04): Control Strip, reproductores MPRIS2, vúmetro de decibeles dBFS en PipeWire, perfiles por app y telemetría A2141." />
+  <title>TuxBar Pro — Touch Bar Completo para Linux T2 (Íconos macOS, PipeWire dBFS, MPRIS2)</title>
+  <meta name="description" content="TuxBar Pro: todas las vistas del Touch Bar de macOS en Linux T2 (Control Strip con íconos vectoriales, Sliders, Escritura/Emojis, Pestañas, Capturas, F1-F12) más reproductor MPRIS2 y decibeles dBFS en PipeWire." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --bg: #0c0a08;
-      --surface: #161310;
-      --ink: #f3efea;
-      --muted: #9e9589;
-      --accent: #c9a45a;
-      --good: #52b788;
-    }
+    :root { --bg: #0c0a08; --surface: #161310; --ink: #f3efea; --muted: #9e9589; --accent: #c9a45a; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: "Jost", -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.65;
-    }
+    body { background: var(--bg); color: var(--ink); font-family: "Jost", sans-serif; line-height: 1.65; }
     a { color: var(--accent); text-decoration: none; }
     .container { max-width: 1180px; margin: 0 auto; padding: 48px 24px 80px; }
-    h1 { font-size: clamp(32px, 4vw, 52px); line-height: 1.08; margin-bottom: 16px; }
+    h1 { font-size: clamp(32px, 4vw, 50px); line-height: 1.08; margin-bottom: 16px; }
     h2 { font-size: 28px; margin: 48px 0 16px; }
-    p.lead { color: var(--muted); font-size: 18px; max-width: 68ch; margin-bottom: 28px; }
+    p.lead { color: var(--muted); font-size: 18px; max-width: 70ch; margin-bottom: 28px; }
     .btn { display: inline-block; background: var(--accent); color: #161310; font-weight: 700; padding: 12px 22px; margin-right: 16px; }
-    .strip-card { background: var(--surface); padding: 20px; margin-bottom: 18px; }
-    .strip-card h3 { font-size: 16px; color: var(--accent); margin-bottom: 10px; }
+    .strip-card { background: var(--surface); padding: 18px; margin-bottom: 16px; }
+    .strip-card h3 { font-size: 15px; color: var(--accent); margin-bottom: 10px; }
     .strip-card img { width: 100%; height: auto; display: block; }
     pre { background: var(--surface); padding: 20px; overflow-x: auto; font-size: 14px; color: var(--ink); }
   </style>
 </head>
 <body>
   <main class="container">
-    <h1>TuxBar Pro — Suite de Touch Bar para Linux T2</h1>
+    <h1>TuxBar Pro — Touch Bar Completo para Linux T2</h1>
     <p class="lead">
-      Motor DRM/KMS (2170×60) para MacBook Pro T2 en Ubuntu 24.04 LTS: Control Strip completo, perfiles por aplicación activa, reproductores MPRIS2, vúmetro de decibeles (dBFS) en tiempo real con PipeWire y telemetría térmica A2141.
+      Todas las vistas e íconos vectoriales del Touch Bar de macOS llevados a Linux (Ubuntu 24.04 LTS / kernel linux-t2) junto con reproductores MPRIS2, medidor de decibeles (dBFS) en PipeWire y telemetría térmica A2141.
     </p>
     <div style="margin-bottom: 40px;">
       <a href="https://github.com/mylnzon58/tuxbar-pro" class="btn">Ver Repositorio en GitHub</a>
       <a href="#instalar">Instalación en 1 paso →</a>
     </div>
 
-    <h2>Todas las vistas incluidas en el Touch Bar</h2>
-    <div class="strip-card">
-      <h3>1. Reproductor MPRIS2 + Medidor de Decibeles (dBFS) en vivo por PipeWire</h3>
-      <img src="assets/strip-media-decibels.png" alt="TuxBar Pro Media y Decibeles dBFS" />
-    </div>
-    <div class="strip-card">
-      <h3>2. Perfil Dinámico para IDE / Terminal</h3>
-      <img src="assets/strip-app-ide.png" alt="TuxBar Pro IDE" />
-    </div>
-    <div class="strip-card">
-      <h3>3. Perfil Dinámico para Navegador Web</h3>
-      <img src="assets/strip-app-browser.png" alt="TuxBar Pro Navegador" />
-    </div>
-    <div class="strip-card">
-      <h3>4. Telemetría Térmica y Turbinas A2141 en Vivo</h3>
-      <img src="assets/strip-thermal-a2141.png" alt="TuxBar Pro Térmica" />
-    </div>
-    <div class="strip-card">
-      <h3>5. Teclas de Función Clásicas (Esc + F1–F12)</h3>
-      <img src="assets/strip-fn-keys.png" alt="TuxBar Pro Teclas Fn" />
-    </div>
-    <div class="strip-card">
-      <h3>6. Control Strip Expandido estilo macOS</h3>
-      <img src="assets/strip-expanded-control.png" alt="TuxBar Pro Control Strip Expandido" />
-    </div>
+    <h2>Las 8 vistas incluidas en el Touch Bar (2170 × 60)</h2>
+    <div class="strip-card"><h3>1. Control Strip Expandido estilo macOS</h3><img src="assets/strip-01-expanded-control.png" alt="Control Strip Expandido" /></div>
+    <div class="strip-card"><h3>2. Deslizadores Táctiles de Brillo y Volumen</h3><img src="assets/strip-02-slider-overlay.png" alt="Deslizadores Brillo y Volumen" /></div>
+    <div class="strip-card"><h3>3. Barra de Escritura: Formato, Texto Predictivo y Emojis</h3><img src="assets/strip-03-typing-emoji.png" alt="Escritura Predictiva y Emojis" /></div>
+    <div class="strip-card"><h3>4. Barra de Navegador con Miniaturas de Pestañas</h3><img src="assets/strip-04-browser-tabs.png" alt="Navegador y Pestañas" /></div>
+    <div class="strip-card"><h3>5. Barra de Captura y Grabación de Pantalla</h3><img src="assets/strip-05-screenshot-bar.png" alt="Captura de Pantalla" /></div>
+    <div class="strip-card"><h3>6. Reproductor MPRIS2 + Medidor de Decibeles (dBFS) PipeWire</h3><img src="assets/strip-06-media-decibels.png" alt="MPRIS2 y Decibeles PipeWire" /></div>
+    <div class="strip-card"><h3>7. Telemetría Térmica y Turbinas A2141 en Vivo</h3><img src="assets/strip-07-thermal-a2141.png" alt="Telemetría Térmica A2141" /></div>
+    <div class="strip-card"><h3>8. Teclas de Función Clásicas (Esc + F1–F12)</h3><img src="assets/strip-08-fn-keys.png" alt="Teclas Fn F1-F12" /></div>
 
     <h2 id="instalar">Instalación en Ubuntu 24.04 LTS / Linux T2</h2>
     <pre><code>git clone https://github.com/mylnzon58/tuxbar-pro.git

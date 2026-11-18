@@ -14,20 +14,21 @@ from .services import classify_app_profile, read_a2141_thermals, read_active_app
 
 
 def export_all_previews(out_dir: str):
-    """Render all 5 Touch Bar feature strips with a realistic MacBook Pro bezel frame."""
+    """Render all 8 macOS-parity + Linux T2 Touch Bar strips with MacBook bezel."""
     os.makedirs(out_dir, exist_ok=True)
     specs = [
-        ("strip-app-ide.png", dict(mode="app_control", app_profile="ide")),
-        ("strip-app-browser.png", dict(mode="app_control", app_profile="browser")),
-        ("strip-media-decibels.png", dict(mode="media_db", media_title="Daft Punk - Veridis Quo", media_artist="Spotify · MPRIS2", media_playing=True, rms_db=-14.2, peak_db=-5.8)),
-        ("strip-thermal-a2141.png", dict(mode="thermal", cpu_temp_c=65.4, cpu_power_w=14.2, fan0_rpm=3120, fan1_rpm=2940, ram_pct=44)),
-        ("strip-fn-keys.png", dict(mode="fn_keys")),
-        ("strip-expanded-control.png", dict(mode="expanded")),
+        ("strip-01-expanded-control.png", dict(mode="expanded_control")),
+        ("strip-02-slider-overlay.png", dict(mode="slider_overlay")),
+        ("strip-03-typing-emoji.png", dict(mode="typing_emoji")),
+        ("strip-04-browser-tabs.png", dict(mode="browser_tabs")),
+        ("strip-05-screenshot-bar.png", dict(mode="screenshot_bar")),
+        ("strip-06-media-decibels.png", dict(mode="media_decibels", rms_db=-14.2, peak_db=-5.8)),
+        ("strip-07-thermal-a2141.png", dict(mode="thermal_a2141", cpu_temp_c=65.4, cpu_power_w=14.2, fan0_rpm=3120, fan1_rpm=2940, ram_pct=44)),
+        ("strip-08-fn-keys.png", dict(mode="fn_keys")),
     ]
     for fname, kwargs in specs:
         strip = render_strip(**kwargs)
-        # Wrap inside a crisp dark anodized MacBook Touch Bar bezel (2210x100)
-        framed = Image.new("RGB", (WIDTH + 40, HEIGHT + 40), (22, 23, 27))
+        framed = Image.new("RGB", (WIDTH + 40, HEIGHT + 40), (16, 17, 20))
         draw = ImageDraw.Draw(framed)
         draw.rounded_rectangle((14, 14, WIDTH + 26, HEIGHT + 26), radius=14, outline=(52, 55, 64), width=2)
         framed.paste(strip, (20, 20))
