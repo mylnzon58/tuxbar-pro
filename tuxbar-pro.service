@@ -1,6 +1,7 @@
 [Unit]
 Description=TuxBar Pro — Dynamic Apple Touch Bar Suite for Linux T2
-After=graphical.target pipewire.service
+After=graphical-session.target pipewire.service pipewire-pulse.service
+PartOf=graphical-session.target
 
 [Service]
 Type=simple
@@ -10,4 +11,4 @@ Restart=always
 RestartSec=2
 
 [Install]
-WantedBy=graphical.target
+WantedBy=graphical-session.target

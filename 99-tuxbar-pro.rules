@@ -1,0 +1,4 @@
+# Allow active desktop user (groups video/input) to access Touch Bar DRM, evdev & uinput without running UI as root
+SUBSYSTEM=="drm", KERNEL=="card*", GROUP="video", MODE="0660"
+SUBSYSTEM=="input", ATTRS{name}=="*Touch*Bar*", GROUP="input", MODE="0660"
+KERNEL=="uinput", SUBSYSTEM=="misc", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
